@@ -14,11 +14,19 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-mongoose.connect(
-  'mongodb+srv://reddyvijay1690:NOkMx7vpgsPdml9F@cluster0.ilbtpvc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/todo/TODO',
-  () => console.log('MongoDB connected')
-);
+// MongoDB connection
+mongoose
+  .connect(
+    'mongodb+srv://reddyvijay1690:NOkMx7vpgsPdml9F@cluster0.ilbtpvc.mongodb.net/todo?retryWrites=true&w=majority',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
+// Start the server
 app.listen(5000, () => console.log('Server listening on port: 5000'));
 
 app.post('/add', (req, res) => {
