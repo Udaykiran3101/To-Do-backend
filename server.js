@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/TODO',
+mongoose.connect('mongodb+srv://reddyvijay1690:NOkMx7vpgsPdml9F@cluster0.ilbtpvc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/todo/TODO',
     console.log('MongoDB connected')
 )
 
